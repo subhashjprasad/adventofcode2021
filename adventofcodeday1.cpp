@@ -26,8 +26,6 @@ void part1() {
 
     cout << count << endl;
 
-    inFile.close;
-
 }
 
 void part2() {
@@ -56,8 +54,6 @@ void part2() {
     }
 
     cout << count << endl;
-
-    inFile.close;
 
 }
 
