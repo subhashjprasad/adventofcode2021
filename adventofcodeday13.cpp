@@ -122,13 +122,22 @@ void part2() {
         table[v[i]][v[i + 1]] = 1;
     }
     
-    for (int i = 0; i < 1; i++) {
-        if ((f[i])[0] == 'x') flipX(stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("="))));
-        else if ((f[i])[0] == 'y') flipY(stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("="))));
+    int lastX = 0;
+    int lastY = 0;
+    
+    for (int i = 0; i < f.size(); i++) {
+        if ((f[i])[0] == 'x') {
+            flipX(stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("="))));
+            lastX = stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("=")));
+        }
+        else if ((f[i])[0] == 'y') {
+            flipY(stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("="))));
+            lastY = stoi(f[i].substr(f[i].find("=") + 1, f[i].length() - f[i].find("=")));
+        }
     }
-
-    for (int i = 0; i < 6; i++) {
-        for (int j = 0; j < 40; j++) {
+    
+    for (int i = 0; i < lastY; i++) {
+        for (int j = 0; j < lastX; j++) {
             if (table[j][i] == 1) {
                 cout << "#";
             } else {
@@ -138,19 +147,11 @@ void part2() {
         cout << endl;
     }
 
-    for (int i = 0; i < 1500; i++) {
-        for (int j = 0; j < 1500; j++) {
-            if (table[j][i] == 1) {
-                cout << j << " " << i << endl;
-            }
-        }
-    }
-
 }
 
 int main() {
 
-    //part1();
+    part1();
 
     part2();
 
